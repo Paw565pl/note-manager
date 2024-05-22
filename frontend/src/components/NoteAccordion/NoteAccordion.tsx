@@ -6,10 +6,12 @@ import { useSession } from "next-auth/react";
 
 interface NoteAccordionProps {
   note: Note;
+  showAuthor?: boolean;
 }
 
 const NoteAccordion = ({
-  note: { id, title, text, created_at },
+  note: { id, title, text, created_at, user },
+  showAuthor,
 }: NoteAccordionProps) => {
   const { data: session } = useSession();
   const { mutate: deleteNote } = useDeleteNote(session?.access_token!);
@@ -23,6 +25,7 @@ const NoteAccordion = ({
       <input type="radio" name="my-accordion-2" />
       <div className="collapse-title text-xl font-medium flex justify-between items-center">
         <span>{title}</span>
+        {showAuthor && <span>Author: {user}</span>}
         <span className="text-xs" suppressHydrationWarning>
           {formattedDate}
         </span>
