@@ -12,6 +12,7 @@ python-dotenv = "^1.0.1"
 fastapi-keycloak-middleware = "^0.4.2"
 sqlalchemy = "^2.0.30"
 asyncpg = "^0.29.0"
+brotli-asgi = "^1.4.0"
 
 
 [build-system]
