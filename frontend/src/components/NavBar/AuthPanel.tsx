@@ -1,12 +1,20 @@
-import { auth, signOut } from "@/auth";
+import { auth, checkIsAdmin, signOut } from "@/auth";
+import Link from "next/link";
 
-const LogoutButton = async () => {
+const AuthPanel = async () => {
   const session = await auth();
   if (!session) return null;
+
+  const isAdmin = checkIsAdmin(session);
 
   return (
     <div className="flex items-center gap-3">
       <span>{session.user.username}</span>
+      {isAdmin && (
+        <Link className="link link-hover" href={"/admin"}>
+          Admin Page
+        </Link>
+      )}
       <form
         action={async () => {
           "use server";
@@ -27,4 +35,4 @@ const LogoutButton = async () => {
   );
 };
 
-export default LogoutButton;
+export default AuthPanel;

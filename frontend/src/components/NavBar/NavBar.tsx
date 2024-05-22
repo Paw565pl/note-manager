@@ -1,4 +1,4 @@
-import LogoutButton from "./LogoutButton";
+import AuthPanel from "./AuthPanel";
 
 const NavBar = () => {
   return (
@@ -7,7 +7,7 @@ const NavBar = () => {
         <a className="btn btn-ghost text-xl">Note Manager</a>
       </div>
       <div className="flex-none">
-        <LogoutButton />
+        <AuthPanel />
       </div>
     </div>
   );
