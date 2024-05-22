@@ -1,4 +1,4 @@
-import { auth } from "@/auth";
+import { auth, signIn } from "@/auth";
 import NoteForm from "@/components/NoteForm";
 import NotesGrid from "@/components/NotesGrid";
 import { prefetchNotes } from "@/hooks/useFetchNotes";
@@ -7,11 +7,10 @@ import {
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
-import { redirect } from "next/navigation";
 
 const HomePage = async () => {
   const session = await auth();
-  if (!session) return redirect("/");
+  if (!session) return signIn();
 
   const queryClient = new QueryClient();
   await prefetchNotes(queryClient, session.access_token!);
