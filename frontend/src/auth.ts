@@ -18,14 +18,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signIn: "/",
   },
   callbacks: {
-    jwt: async ({ token, account }) => {
-      if (account) {
+    jwt: async ({ token, account, profile }) => {
+      if (account && profile) {
         // Save the access token and refresh token in the JWT on the initial login, as well as the user details
         return {
           ...token,
           access_token: account.access_token,
           refresh_token: account.refresh_token,
           access_token_expires_at: account.expires_at,
+          username: profile.preferred_username || undefined,
         };
       } else if (
         token.access_token_expires_at &&
@@ -72,6 +73,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         access_token: token.access_token,
         refresh_token: token.refresh_token,
         access_token_expires_at: token.access_token_expires_at,
+        user: {
+          ...session.user,
+          username: token.username,
+        },
       };
     },
   },

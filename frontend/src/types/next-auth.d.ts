@@ -1,4 +1,5 @@
 import "next-auth";
+import { DefaultSession } from "next-auth";
 import "next-auth/jwt";
 
 declare module "next-auth" {
@@ -9,6 +10,10 @@ declare module "next-auth" {
     access_token?: string;
     refresh_token?: string;
     access_token_expires_at?: number;
+    user: {
+      username?: string;
+    } & DefaultSession["user"];
+    // & DefaultSession["user"];
   }
 }
 
@@ -19,5 +24,6 @@ declare module "next-auth/jwt" {
     access_token?: string;
     refresh_token?: string;
     access_token_expires_at?: number;
+    username?: string;
   }
 }
