@@ -1,5 +1,5 @@
 import axios from "axios";
-import NextAuth from "next-auth";
+import NextAuth, { Session } from "next-auth";
 import { Provider } from "next-auth/providers";
 import keycloak from "next-auth/providers/keycloak";
 import TokenRefresh from "./entites/tokenRefresh";
@@ -93,3 +93,7 @@ export const providerMap = providers.map((provider) => {
     return { id: provider.id, name: provider.name };
   }
 });
+
+export const checkIsAdmin = (session: Session) => {
+  return session.user.roles?.includes("admin") || false;
+};
