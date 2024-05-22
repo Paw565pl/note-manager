@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="container mx-auto px-2">
+      <body className="container mx-auto p-2">
         <Providers>
           <NavBar />
           {children}
