@@ -1,12 +1,16 @@
 "use client";
 
+import useCreateNote from "@/hooks/useCreateNote";
 import noteSchema, { NoteValues } from "@/schemas/noteSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useSession } from "next-auth/react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import FormInput from "../FormInput";
 import FormTextArea from "../FormTextArea";
 
 const NoteForm = () => {
+  const { data: session } = useSession();
+  const { mutate } = useCreateNote(session?.access_token!);
   const {
     register,
     handleSubmit,
@@ -15,8 +19,9 @@ const NoteForm = () => {
     resolver: zodResolver(noteSchema),
   });
 
-  const onSubmit: SubmitHandler<NoteValues> = (formData) =>
-    console.log(formData);
+  const onSubmit: SubmitHandler<NoteValues> = (formData) => {
+    mutate(formData);
+  };
 
   return (
     <section>
