@@ -8,14 +8,7 @@ const NotesGrid = () => {
   const { data: session } = useSession();
   const { data: notes } = useFetchNotes(session?.access_token!);
 
-  return notes?.map((note) => (
-    <NoteAccordion
-      key={note.id}
-      title={note.title}
-      text={note.text}
-      created_at={note.created_at}
-    />
-  ));
+  return notes?.map((note) => <NoteAccordion key={note.id} note={note} />);
 };
 
 export default NotesGrid;
