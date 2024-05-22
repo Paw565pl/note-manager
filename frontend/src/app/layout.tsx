@@ -1,3 +1,4 @@
+import NavBar from "@/components/NavBar";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -12,7 +13,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="container mx-auto">
+        <NavBar />
+        {children}
+      </body>
     </html>
   );
 }
