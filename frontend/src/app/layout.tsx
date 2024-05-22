@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="container mx-auto">
+      <body className="container mx-auto px-2">
         <NavBar />
         {children}
       </body>
