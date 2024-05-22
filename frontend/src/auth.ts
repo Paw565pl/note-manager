@@ -27,6 +27,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           refresh_token: account.refresh_token,
           access_token_expires_at: account.expires_at,
           username: profile.preferred_username || undefined,
+          roles: profile.realm_access?.roles,
         };
       } else if (
         token.access_token_expires_at &&
@@ -77,6 +78,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           ...session.user,
           username: token.username,
           id: token.sub,
+          roles: token.roles,
         },
       };
     },

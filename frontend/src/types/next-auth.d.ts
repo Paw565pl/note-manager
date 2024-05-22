@@ -12,8 +12,14 @@ declare module "next-auth" {
     access_token_expires_at?: number;
     user: {
       username?: string;
+      roles?: string[];
     } & DefaultSession["user"];
-    // & DefaultSession["user"];
+  }
+
+  interface Profile {
+    realm_access?: {
+      roles?: string[];
+    };
   }
 }
 
@@ -25,5 +31,6 @@ declare module "next-auth/jwt" {
     refresh_token?: string;
     access_token_expires_at?: number;
     username?: string;
+    roles?: string[];
   }
 }
