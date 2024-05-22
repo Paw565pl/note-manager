@@ -20,8 +20,11 @@ const NoteAccordion = ({ title, text, created_at }: NoteAccordionProps) => {
           {formattedDate}
         </span>
       </div>
-      <div className="collapse-content">
+      <div className="collapse-content space-y-2">
         <p>{text}</p>
+        <button className="btn btn-outline btn-sm btn-error">
+          Delete Note
+        </button>
       </div>
     </div>
   );
