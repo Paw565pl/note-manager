@@ -3,7 +3,7 @@ import Note from "@/entites/note";
 import apiService, { createAuthHeader } from "@/services/apiService";
 import { QueryClient, useQuery } from "@tanstack/react-query";
 
-const fetchAdminNotes = async (accessToken: string) => {
+const adminFetchNotes = async (accessToken: string) => {
   const { data } = await apiService.get<Note[]>("/admin", {
     headers: { Authorization: createAuthHeader(accessToken) },
   });
@@ -12,19 +12,19 @@ const fetchAdminNotes = async (accessToken: string) => {
 
 export const adminNotesQueryKey = ["adminNotes"];
 
-export const prefetchAdminNotes = async (
+export const adminPrefetchNotes = async (
   queryClient: QueryClient,
   accessToken: string
 ) =>
   queryClient.prefetchQuery({
     queryKey: adminNotesQueryKey,
-    queryFn: () => fetchAdminNotes(accessToken),
+    queryFn: () => adminFetchNotes(accessToken),
   });
 
-const useFetchAdminNotes = (accessToken: string) =>
+const useAdminFetchNotes = (accessToken: string) =>
   useQuery({
     queryKey: adminNotesQueryKey,
-    queryFn: () => fetchAdminNotes(accessToken),
+    queryFn: () => adminFetchNotes(accessToken),
   });
 
-export default useFetchAdminNotes;
+export default useAdminFetchNotes;
