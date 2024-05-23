@@ -1,21 +1,18 @@
 "use client";
 
 import Note from "@/entites/note";
-import useDeleteNote from "@/hooks/useDeleteNote";
-import { useSession } from "next-auth/react";
 
 interface NoteAccordionProps {
   note: Note;
   showAuthor?: boolean;
+  deleteHandler: (noteId: number) => void;
 }
 
 const NoteAccordion = ({
   note: { id, title, text, created_at, user },
   showAuthor,
+  deleteHandler,
 }: NoteAccordionProps) => {
-  const { data: session } = useSession();
-  const { mutate: deleteNote } = useDeleteNote(session?.access_token!);
-
   const formattedDate = new Date(created_at).toLocaleString(undefined, {
     hour12: false,
   });
@@ -34,7 +31,7 @@ const NoteAccordion = ({
         <p>{text}</p>
         <button
           className="btn btn-outline btn-sm btn-error"
-          onClick={() => deleteNote(id)}
+          onClick={() => deleteHandler(id)}
         >
           Delete Note
         </button>
