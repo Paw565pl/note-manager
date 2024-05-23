@@ -1,4 +1,11 @@
 import { auth, checkIsAdmin } from "@/auth";
+import AdminNotesGrid from "@/components/AdminNotesGrid";
+import { prefetchAdminNotes } from "@/hooks/useFetchAdminNotes";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
 import { signIn } from "next-auth/react";
 
 const AdminPage = async () => {
@@ -14,7 +21,16 @@ const AdminPage = async () => {
       </p>
     );
 
-  return <div>AdminPage</div>;
+  const queryClient = new QueryClient();
+  await prefetchAdminNotes(queryClient, session.access_token!);
+
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <main className="lg:w-1/2 mx-auto space-y-2">
+        <AdminNotesGrid />
+      </main>
+    </HydrationBoundary>
+  );
 };
 
 export default AdminPage;
