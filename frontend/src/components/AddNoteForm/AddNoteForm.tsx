@@ -14,13 +14,16 @@ const AddNoteForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<NoteValues>({
     resolver: zodResolver(noteSchema),
   });
 
   const onSubmit: SubmitHandler<NoteValues> = (formData) => {
-    mutate(formData);
+    mutate(formData, {
+      onSuccess: () => reset(),
+    });
   };
 
   return (
