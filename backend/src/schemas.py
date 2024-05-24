@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 
 
 class Note(BaseModel):
-    title: str = Field(min_length=10, strip_whitespace=True)
+    title: str = Field(min_length=10, max_length=100, strip_whitespace=True)
     text: str = Field(strip_whitespace=True)
 
 
