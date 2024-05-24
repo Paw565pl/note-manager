@@ -1,5 +1,5 @@
 import { auth, signIn } from "@/auth";
-import NoteForm from "@/components/NoteForm";
+import AddNoteForm from "@/components/AddNoteForm";
 import NotesGrid from "@/components/NotesGrid";
 import { prefetchNotes } from "@/hooks/useFetchNotes";
 import {
@@ -18,7 +18,7 @@ const HomePage = async () => {
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <main className="lg:w-1/2 mx-auto space-y-2">
-        <NoteForm />
+        <AddNoteForm />
         <NotesGrid />
       </main>
     </HydrationBoundary>

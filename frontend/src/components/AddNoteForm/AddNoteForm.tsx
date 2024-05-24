@@ -8,7 +8,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import FormInput from "../FormInput";
 import FormTextArea from "../FormTextArea";
 
-const NoteForm = () => {
+const AddNoteForm = () => {
   const { data: session } = useSession();
   const { mutate } = useCreateNote(session?.access_token!);
   const {
@@ -47,4 +47,4 @@ const NoteForm = () => {
   );
 };
 
-export default NoteForm;
+export default AddNoteForm;
