@@ -1,0 +1,46 @@
+services:
+  database:
+    image: postgres:16-alpine
+    restart: on-failure
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=note_manager
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+  keycloak:
+    build:
+      context: ./keycloak
+      dockerfile: Dockerfile
+    restart: on-failure
+    env_file:
+      - ./keycloak/.env
+    depends_on:
+      - database
+    ports:
+      - "8080:8080"
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: on-failure
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - database
+      - keycloak
+    ports:
+      - "8000:8000"
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: on-failure
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+      - keycloak
+      - backend
+
+volumes:
+  postgres-data:
