@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config-map
+data:
+  KEYCLOAK_URL: http://keycloak-service:8080
+  KEYCLOAK_REALM: note_manager
+  KEYCLOAK_CLIENT_ID: fastapi-app

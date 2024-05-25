@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: note-manager-backend
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "1"
+        ports:
+        - containerPort: 8000
+        envFrom:
+          - secretRef:
+              name: backend-secret-map
+          - configMapRef:
+              name: backend-config-map
