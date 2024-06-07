@@ -1,4 +1,4 @@
-import { auth, checkIsAdmin } from "@/auth";
+import { auth, checkIsAdmin, signIn } from "@/auth";
 import AdminNotesGrid from "@/components/AdminNotesGrid";
 import { adminPrefetchNotes } from "@/hooks/useAdminFetchNotes";
 import {
@@ -6,7 +6,6 @@ import {
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
-import { signIn } from "next-auth/react";
 
 const AdminPage = async () => {
   const session = await auth();
