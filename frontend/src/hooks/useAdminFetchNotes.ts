@@ -12,7 +12,7 @@ const adminFetchNotes = async (accessToken: string) => {
 
 export const adminNotesQueryKey = ["adminNotes"];
 
-export const adminPrefetchNotes = async (
+export const prefetchAdminNotes = async (
   queryClient: QueryClient,
   accessToken: string,
 ) =>

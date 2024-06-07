@@ -1,6 +1,6 @@
 import { auth, checkIsAdmin, signIn } from "@/auth";
 import AdminNotesGrid from "@/components/AdminNotesGrid";
-import { adminPrefetchNotes } from "@/hooks/useAdminFetchNotes";
+import { prefetchAdminNotes } from "@/hooks/useAdminFetchNotes";
 import {
   dehydrate,
   HydrationBoundary,
@@ -21,7 +21,7 @@ const AdminPage = async () => {
     );
 
   const queryClient = new QueryClient();
-  await adminPrefetchNotes(queryClient, session.access_token!);
+  await prefetchAdminNotes(queryClient, session.access_token!);
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
