@@ -6,7 +6,7 @@ const SignInPage = async () => {
   if (session) return redirect("/home");
 
   return (
-    <main className="text-center space-y-3">
+    <main className="space-y-3 text-center">
       <h1 className="text-5xl">Welcome!</h1>
       <h2 className="text-2xl">To continue you have to sign in.</h2>
       <div className="flex flex-col gap-2">

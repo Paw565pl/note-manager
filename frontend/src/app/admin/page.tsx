@@ -25,7 +25,7 @@ const AdminPage = async () => {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <main className="lg:w-1/2 mx-auto space-y-2">
+      <main className="mx-auto space-y-2 lg:w-1/2">
         <AdminNotesGrid />
       </main>
     </HydrationBoundary>

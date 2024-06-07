@@ -11,7 +11,7 @@ const AuthPanel = async () => {
     <div className="flex items-center gap-3">
       <span>{session.user.username}</span>
       {isAdmin && (
-        <Link className="link link-hover" href={"/admin"}>
+        <Link className="link-hover link" href={"/admin"}>
           Admin Page
         </Link>
       )}

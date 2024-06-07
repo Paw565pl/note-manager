@@ -52,14 +52,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
               },
-            }
+            },
           );
 
           return {
             ...token, // Keep the previous token properties
             access_token: newTokens.access_token,
             access_token_expires_at: Math.floor(
-              Date.now() / 1000 + newTokens.expires_in
+              Date.now() / 1000 + newTokens.expires_in,
             ),
             // Fall back to old refresh token
             refresh_token: newTokens.refresh_token ?? token.refresh_token,

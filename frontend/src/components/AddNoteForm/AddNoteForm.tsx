@@ -28,7 +28,7 @@ const AddNoteForm = () => {
 
   return (
     <section>
-      <header className="text-2xl text-center">Add new note</header>
+      <header className="text-center text-2xl">Add new note</header>
       <form className="space-y-2" onSubmit={handleSubmit(onSubmit)}>
         <FormInput
           label="Title"

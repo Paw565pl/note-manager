@@ -18,7 +18,7 @@ const Providers = ({ children }: ProvidersProps) => {
             staleTime: 60 * 1000, // 1 minute,
           },
         },
-      })
+      }),
   );
 
   return (

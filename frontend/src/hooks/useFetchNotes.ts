@@ -14,7 +14,7 @@ export const notesQueryKey = ["notes"];
 
 export const prefetchNotes = async (
   queryClient: QueryClient,
-  accessToken: string
+  accessToken: string,
 ) =>
   queryClient.prefetchQuery({
     queryKey: notesQueryKey,

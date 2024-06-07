@@ -14,7 +14,7 @@ export const adminNotesQueryKey = ["adminNotes"];
 
 export const adminPrefetchNotes = async (
   queryClient: QueryClient,
-  accessToken: string
+  accessToken: string,
 ) =>
   queryClient.prefetchQuery({
     queryKey: adminNotesQueryKey,

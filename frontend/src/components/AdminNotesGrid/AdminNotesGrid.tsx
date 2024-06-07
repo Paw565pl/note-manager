@@ -9,7 +9,7 @@ const AdminNotesGrid = () => {
   const { data: session } = useSession();
   const { data: notes } = useAdminFetchNotes(session?.access_token!);
   const { mutate: adminDeleteNote } = useAdminDeleteNote(
-    session?.access_token!
+    session?.access_token!,
   );
 
   return notes?.map((note) => (

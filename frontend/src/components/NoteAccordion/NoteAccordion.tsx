@@ -20,7 +20,7 @@ const NoteAccordion = ({
   return (
     <div className="collapse collapse-arrow bg-base-200">
       <input type="radio" name="my-accordion-2" />
-      <div className="collapse-title text-xl font-medium flex justify-between items-center">
+      <div className="collapse-title flex items-center justify-between text-xl font-medium">
         <span>{title}</span>
         {showAuthor && <span>Author: {user}</span>}
         <span className="text-xs" suppressHydrationWarning>
@@ -30,7 +30,7 @@ const NoteAccordion = ({
       <div className="collapse-content space-y-2">
         <p>{text}</p>
         <button
-          className="btn btn-outline btn-sm btn-error"
+          className="btn btn-outline btn-error btn-sm"
           onClick={() => deleteHandler(id)}
         >
           Delete Note
