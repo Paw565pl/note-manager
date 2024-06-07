@@ -3,6 +3,7 @@ import { NoteValues } from "@/schemas/noteSchema";
 import apiService, { createAuthHeader } from "@/services/apiService";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
+import { adminNotesQueryKey } from "./useAdminFetchNotes";
 import { notesQueryKey } from "./useFetchNotes";
 
 const createNote = async (newNote: NoteValues, accessToken: string) => {
@@ -18,7 +19,10 @@ const useCreateNote = (accessToken: string) => {
   return useMutation<Note, AxiosError, NoteValues, Note[]>({
     mutationKey: ["createNote"],
     mutationFn: (newNote) => createNote(newNote, accessToken),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: notesQueryKey }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: adminNotesQueryKey });
+      queryClient.invalidateQueries({ queryKey: notesQueryKey });
+    },
   });
 };
 
