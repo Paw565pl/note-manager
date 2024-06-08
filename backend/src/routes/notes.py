@@ -4,7 +4,7 @@ from sqlalchemy import and_, delete, select
 from src.auth import AuthTokenDependency
 from src.database import DatabaseDependency
 from src.models import Notes
-from src.schemas import Note, NoteDB
+from src.schemas import Note, NotePayload
 
 router = APIRouter(prefix="/api/notes")
 
@@ -12,7 +12,7 @@ router = APIRouter(prefix="/api/notes")
 @router.get("/")
 async def get_user_notes(
     token_info: AuthTokenDependency, db: DatabaseDependency
-) -> list[NoteDB]:
+) -> list[Note]:
     user_id = token_info.get("sub")
 
     query = (
@@ -26,8 +26,8 @@ async def get_user_notes(
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
 async def create_note(
-    note: Note, token_info: AuthTokenDependency, db: DatabaseDependency
-) -> NoteDB:
+    note: NotePayload, token_info: AuthTokenDependency, db: DatabaseDependency
+) -> Note:
     user_id = token_info.get("sub")
     user = token_info.get("preferred_username")
     note_dict = note.model_dump()

@@ -4,13 +4,13 @@ from sqlalchemy import delete, select
 from src.auth import AdminRoleDependency
 from src.database import DatabaseDependency
 from src.models import Notes
-from src.schemas import NoteDB
+from src.schemas import Note
 
 router = APIRouter(prefix="/api/admin")
 
 
 @router.get("/")
-async def get_all_notes(_: AdminRoleDependency, db: DatabaseDependency) -> list[NoteDB]:
+async def get_all_notes(_: AdminRoleDependency, db: DatabaseDependency) -> list[Note]:
     query = select(Notes).order_by(Notes.created_at.desc())
     result = await db.execute(query)
     all_notes = result.scalars().all()
