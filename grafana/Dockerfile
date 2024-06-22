@@ -6,4 +6,4 @@ ENV GF_AUTH_ANONYMOUS_ORG_ROLE "Admin"
 
 COPY datasources.yml /etc/grafana/provisioning/datasources
 COPY dashboards.yml /etc/grafana/provisioning/dashboards
-COPY fastapi_dashboard.json /var/lib/grafana/dashboards/
+COPY fastapi_dashboard.json /etc/grafana/provisioning/dashboards
