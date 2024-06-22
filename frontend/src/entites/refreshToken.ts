@@ -1,4 +1,4 @@
-interface TokenRefresh {
+interface RefreshToken {
   access_token: string;
   expires_in: number;
   refresh_expires_in: number;
@@ -7,4 +7,4 @@ interface TokenRefresh {
   id_token: string;
 }
 
-export default TokenRefresh;
+export default RefreshToken;

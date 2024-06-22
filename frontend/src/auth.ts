@@ -2,7 +2,7 @@ import axios from "axios";
 import NextAuth, { Session } from "next-auth";
 import { Provider } from "next-auth/providers";
 import keycloak from "next-auth/providers/keycloak";
-import TokenRefresh from "./entites/tokenRefresh";
+import RefreshToken from "./entites/refreshToken";
 
 const providers: Provider[] = [
   keycloak({
@@ -40,7 +40,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       } else {
         // If the access token has expired, try to refresh it
         try {
-          const { data: newTokens } = await axios.post<TokenRefresh>(
+          const { data: newTokens } = await axios.post<RefreshToken>(
             process.env.KEYCLOAK_TOKEN_URL!,
             {
               client_id: process.env.KEYCLOAK_ID,
