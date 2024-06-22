@@ -21,13 +21,6 @@ spec:
               cpu: "500m"
           ports:
             - containerPort: 3000
-          volumeMounts:
-            - name: grafana-data
-              mountPath: /var/lib/grafana
           envFrom:
             - configMapRef:
                 name: grafana-config-map
-      volumes:
-        - name: grafana-data
-          persistentVolumeClaim:
-            claimName: grafana-pvc
