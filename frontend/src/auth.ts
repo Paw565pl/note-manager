@@ -41,7 +41,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         // If the access token has expired, try to refresh it
         try {
           const { data: newTokens } = await axios.post<TokenRefresh>(
-            `${process.env.KEYCLOAK_ISSUER}/protocol/openid-connect/token`,
+            process.env.KEYCLOAK_TOKEN_URL!,
             {
               client_id: process.env.KEYCLOAK_ID,
               client_secret: process.env.KEYCLOAK_SECRET,
