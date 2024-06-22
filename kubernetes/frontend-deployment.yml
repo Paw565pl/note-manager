@@ -13,12 +13,12 @@ spec:
         app: frontend
     spec:
       containers:
-      - name: frontend
-        image: note-manager-frontend
-        imagePullPolicy: Never
-        resources:
-          limits:
-            memory: "256Mi"
-            cpu: "1"
-        ports:
-        - containerPort: 3000
+        - name: frontend
+          image: note-manager-frontend
+          imagePullPolicy: Never
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "1"
+          ports:
+            - containerPort: 3000
