@@ -1,6 +1,7 @@
 from brotli_asgi import BrotliMiddleware
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from prometheus_fastapi_instrumentator import Instrumentator
 
 from src.database import db_lifespan
 from src.routes.admin import router as admin_router
@@ -21,3 +22,5 @@ app.add_middleware(
 
 app.include_router(notes_router)
 app.include_router(admin_router)
+
+Instrumentator().instrument(app).expose(app)
