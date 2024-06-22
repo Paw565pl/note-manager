@@ -32,6 +32,28 @@ services:
     ports:
       - "8000:8000"
 
+  prometheus:
+    build:
+      context: ./prometheus
+      dockerfile: Dockerfile
+    restart: on-failure
+    depends_on:
+      - backend
+
+  grafana:
+    build:
+      context: ./grafana
+      dockerfile: Dockerfile
+    restart: on-failure
+    ports:
+      - "4000:3000"
+    environment:
+      - PROMETHEUS_URL=http://prometheus:9090
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    depends_on:
+      - prometheus
+
   frontend:
     build:
       context: ./frontend
@@ -44,3 +66,4 @@ services:
 
 volumes:
   postgres-data:
+  grafana-storage:
