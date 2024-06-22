@@ -8,8 +8,9 @@ declare module "next-auth" {
    */
   interface Session {
     access_token?: string;
-    refresh_token?: string;
     access_token_expires_at?: number;
+    refresh_token?: string;
+    id_token?: string;
     user: {
       username?: string;
       roles?: string[];
@@ -28,8 +29,9 @@ declare module "next-auth/jwt" {
   interface JWT {
     /** OpenID ID Token */
     access_token?: string;
-    refresh_token?: string;
     access_token_expires_at?: number;
+    refresh_token?: string;
+    id_token?: string;
     username?: string;
     roles?: string[];
   }
