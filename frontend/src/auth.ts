@@ -6,8 +6,8 @@ import TokenRefresh from "./entites/tokenRefresh";
 
 const providers: Provider[] = [
   keycloak({
-    clientId: process.env.KEYCLOAK_ID || "",
-    clientSecret: process.env.KEYCLOAK_SECRET || "",
+    clientId: process.env.KEYCLOAK_ID!,
+    clientSecret: process.env.KEYCLOAK_SECRET!,
     issuer: process.env.KEYCLOAK_ISSUER,
     authorization: process.env.KEYCLOAK_AUTH_URL,
     token: process.env.KEYCLOAK_TOKEN_URL,
