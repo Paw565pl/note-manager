@@ -10,31 +10,31 @@
     "format": "pnpm exec prettier . --write"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.6.0",
-    "@tanstack/react-query": "^5.45.1",
-    "axios": "^1.7.2",
-    "next": "14.2.3",
-    "next-auth": "5.0.0-beta.19",
+    "@hookform/resolvers": "^3.9.0",
+    "@tanstack/react-query": "^5.51.23",
+    "axios": "^1.7.3",
+    "next": "14.2.5",
+    "next-auth": "5.0.0-beta.20",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-hook-form": "^7.52.0",
+    "react-hook-form": "^7.52.2",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@tanstack/eslint-plugin-query": "^5.43.1",
-    "@tanstack/react-query-devtools": "^5.45.1",
-    "@types/node": "^20.14.8",
+    "@tanstack/eslint-plugin-query": "^5.51.15",
+    "@tanstack/react-query-devtools": "^5.51.23",
+    "@types/node": "^22.2.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "daisyui": "^4.12.2",
+    "daisyui": "^4.12.10",
     "eslint": "^8.57.0",
-    "eslint-config-next": "14.2.3",
+    "eslint-config-next": "14.2.5",
     "eslint-config-prettier": "^9.1.0",
-    "postcss": "^8.4.38",
-    "prettier": "3.3.1",
-    "prettier-plugin-tailwindcss": "^0.6.5",
-    "tailwindcss": "^3.4.4",
-    "typescript": "^5.5.2"
+    "postcss": "^8.4.41",
+    "prettier": "3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "tailwindcss": "^3.4.9",
+    "typescript": "^5.5.4"
   },
-  "packageManager": "pnpm@9.1.1+sha512.14e915759c11f77eac07faba4d019c193ec8637229e62ec99eefb7cf3c3b75c64447882b7c485142451ee3a6b408059cdfb7b7fa0341b975f12d0f7629c71195"
+  "packageManager": "pnpm@9.7.0+sha512.dc09430156b427f5ecfc79888899e1c39d2d690f004be70e05230b72cb173d96839587545d09429b55ac3c429c801b4dc3c0e002f653830a420fa2dd4e3cf9cf"
 }
