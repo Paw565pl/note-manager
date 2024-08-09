@@ -1,4 +1,4 @@
-import Note from "@/entites/note";
+import Note from "@/entities/note";
 import { NoteValues } from "@/schemas/noteSchema";
 import apiService, { createAuthHeader } from "@/services/apiService";
 import { useMutation, useQueryClient } from "@tanstack/react-query";

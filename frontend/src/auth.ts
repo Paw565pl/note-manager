@@ -3,7 +3,7 @@ import NextAuth, { Session } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import { Provider } from "next-auth/providers";
 import keycloak from "next-auth/providers/keycloak";
-import RefreshToken from "./entites/refreshToken";
+import RefreshToken from "./entities/refreshToken";
 
 const providers: Provider[] = [
   keycloak({

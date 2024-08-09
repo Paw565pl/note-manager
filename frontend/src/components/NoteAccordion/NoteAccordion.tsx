@@ -1,6 +1,6 @@
 "use client";
 
-import Note from "@/entites/note";
+import Note from "@/entities/note";
 
 interface NoteAccordionProps {
   note: Note;

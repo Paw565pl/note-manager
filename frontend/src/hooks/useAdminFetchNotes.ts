@@ -1,5 +1,5 @@
 /* eslint-disable @tanstack/query/exhaustive-deps */
-import Note from "@/entites/note";
+import Note from "@/entities/note";
 import apiService, { createAuthHeader } from "@/services/apiService";
 import { QueryClient, useQuery } from "@tanstack/react-query";
 

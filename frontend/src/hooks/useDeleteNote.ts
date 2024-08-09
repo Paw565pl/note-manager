@@ -1,4 +1,4 @@
-import Note from "@/entites/note";
+import Note from "@/entities/note";
 import apiService, { createAuthHeader } from "@/services/apiService";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AxiosError, AxiosResponse } from "axios";
