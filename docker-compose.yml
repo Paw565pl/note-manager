@@ -57,7 +57,7 @@ services:
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
     restart: on-failure
     ports:
       - "3000:3000"
