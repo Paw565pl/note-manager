@@ -13,4 +13,4 @@ COPY . .
 
 EXPOSE 8000
 
-CMD fastapi run src/main.py
+CMD ["fastapi", "run", "src/main.py"]
